@@ -15,11 +15,14 @@ class Message(models.Model):
         return self.subject
 
     def save(self, *args, **kwargs):
+        # in account sid you will be your account_sid
         account_sid = 'AC165bb43e0d9cb8735ae3e1b328385d62'
+        # this too
         auth_token = '301a597040704a3b19a7fd6a42d0b89c'
         client = Client(account_sid, auth_token)
-        if self.score <=70:
+        if self.score <= 70:
             message = client.messages.create(
+                # this too
                 messaging_service_sid='MG46e600f236a6f5eb619cc99cf5829af6',
 
                 body=f'{self.subject}\n\n'
